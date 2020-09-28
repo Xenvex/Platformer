@@ -34,22 +34,53 @@ public class LevelParserStarter : MonoBehaviour
 
     void Update()
     {
+        // Test for mouse click
+        if (Input.GetMouseButtonUp(0))
+        {
+            //et mouse position in world space
+            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(
+            new Vector3(Input.mousePosition.x, Input.mousePosition.y, 100f));
+
+            //Get direction vector from camera position to m ouse position in world space
+            Vector3 direction = worldMousePosition - Camera.main.transform.position;
+
+            RaycastHit hit;
+
+            // Cast a ray from the camera to the given direction
+            if (Physics.Raycast(Camera.main.transform.position, direction, out hit, 100f))
+            {
+                //Debug.Log(hit.collider.gameObject.name);
+                //If it hits a brick
+                if (hit.collider.gameObject.name == "Brick(Clone)")
+                {
+
+                    Destroy(hit.collider.gameObject);
+                }
+
+                //If it hits a question mark box
+                if (hit.collider.gameObject.name == "Question Box(Clone)")
+                {
+                    Destroy(hit.collider.gameObject);
+                    score++;
+                }
+
+
+            }
+
+        }
 
         //Time Stuff
-        if(inc == 240)
+        if (time != 0)
         {
-            inc = 0;
-            time--;
-        }
-        else
-        {
-            inc++;
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            //Destroy(gameObject);
-            Debug.Log(gameObject.name);
+            if (inc == 240)
+            {
+                inc = 0;
+                time--;
+            }
+            else
+            {
+                inc++;
+            }
         }
 
         //UI stuff
