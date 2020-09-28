@@ -37,7 +37,7 @@ public class LevelParserStarter : MonoBehaviour
         // Test for mouse click
         if (Input.GetMouseButtonUp(0))
         {
-            //et mouse position in world space
+            //Get mouse position in world space
             Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(
             new Vector3(Input.mousePosition.x, Input.mousePosition.y, 100f));
 
