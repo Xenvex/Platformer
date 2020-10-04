@@ -13,6 +13,8 @@ public class LevelParserStarter : MonoBehaviour
     public GameObject Brick;
     public GameObject QuestionBox;
     public GameObject Stone;
+    public GameObject Cloud; //New Object
+    public GameObject Goal; //Also new Object
 
     //For UI Stuff
     public TextMeshProUGUI Mario;
@@ -22,7 +24,7 @@ public class LevelParserStarter : MonoBehaviour
     private float score = 0;
     private float world = 1;
     private float level = 1;
-    private float time = 300;
+    private float time = 100; //Player only has 100 seconds to complete the level
     private float inc = 0;
 
     public Transform parentTransform;
@@ -82,6 +84,10 @@ public class LevelParserStarter : MonoBehaviour
                 inc++;
             }
         }
+        else
+        {
+            Debug.Log("You have failed :(");
+        }
 
         //UI stuff
         Mario.text = ""+score;
@@ -134,6 +140,12 @@ public class LevelParserStarter : MonoBehaviour
                 break;
             case 's': //Debug.Log("Spawn Rock");
                 ToSpawn = Stone;
+                break;
+            case 'c': //This is for Clouds
+                ToSpawn = Cloud;
+                break;
+            case 'g': //This is for Goal
+                ToSpawn = Goal;
                 break;
             //default: Debug.Log("Default Entered"); break;
             default: return;
