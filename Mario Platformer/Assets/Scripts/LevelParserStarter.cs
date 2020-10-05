@@ -15,13 +15,14 @@ public class LevelParserStarter : MonoBehaviour
     public GameObject Stone;
     public GameObject Cloud; //New Object
     public GameObject Goal; //Also new Object
+    public GameObject Coin; //Another New Object
 
     //For UI Stuff
     public TextMeshProUGUI Mario;
     public TextMeshProUGUI World;
     public TextMeshProUGUI Time;
 
-    private float score = 0;
+    public float score = 0;
     private float world = 1;
     private float level = 1;
     private float time = 100; //Player only has 100 seconds to complete the level
@@ -146,6 +147,9 @@ public class LevelParserStarter : MonoBehaviour
                 break;
             case 'g': //This is for Goal
                 ToSpawn = Goal;
+                break;
+            case '$': //This is for Coin
+                ToSpawn = Coin;
                 break;
             //default: Debug.Log("Default Entered"); break;
             default: return;

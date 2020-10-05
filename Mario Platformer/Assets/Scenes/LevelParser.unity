@@ -286,16 +286,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e6568559d6661b4eba05e67f1401a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filename: Test
+  filename: Test_2
   Rock: {fileID: 2580664710886985947, guid: 08eb4b3458a168a43b86b09ec47a1d5f, type: 3}
   Brick: {fileID: 6853587808489901749, guid: d3121c18ba1cd7a4cb865b8a6e5a0770, type: 3}
   QuestionBox: {fileID: 7881753115490444469, guid: bcda53218a7eb2340b4dac07dbf5ae53, type: 3}
   Stone: {fileID: 8221308998520927839, guid: ad3b091db3d997e448464237764e8597, type: 3}
   Cloud: {fileID: 5101692394203963562, guid: 311f5b6cc22cba04cbd321ae59a58251, type: 3}
   Goal: {fileID: 6698498025518541552, guid: 22ce41798e82d5840b83dbca219bfbb4, type: 3}
+  Coin: {fileID: 6619762223974891539, guid: 3f388b916d6675e4480ae2f151f2eb71, type: 3}
   Mario: {fileID: 327124250}
   World: {fileID: 1599072716}
   Time: {fileID: 480355372}
+  score: 0
   parentTransform: {fileID: 992824850}
 --- !u!4 &406602702
 Transform:
@@ -1245,15 +1247,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.999711
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.2222893
+      value: 2.2000003
       objectReference: {fileID: 0}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1261,7 +1263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1269,7 +1271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_RootOrder
@@ -1281,16 +1283,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 10b49e7b6055d8747a5268b90dfac172, type: 2}
+    - target: {fileID: 9500000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
 --- !u!1 &1599072714
@@ -1442,11 +1456,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &1689169848
 MonoBehaviour:
@@ -1460,6 +1474,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bf74f187c96f2409e4bb26f8e020b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveAmplify: 2.2
+--- !u!136 &1689169849
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689169846}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.20392457
+  m_Height: 1.7813902
+  m_Direction: 1
+  m_Center: {x: 2.208109e-19, y: 0.7500007, z: -0.015609458}
 --- !u!1 &1968857340
 GameObject:
   m_ObjectHideFlags: 0
