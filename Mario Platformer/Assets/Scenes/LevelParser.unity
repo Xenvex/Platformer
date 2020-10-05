@@ -294,6 +294,7 @@ MonoBehaviour:
   Cloud: {fileID: 5101692394203963562, guid: 311f5b6cc22cba04cbd321ae59a58251, type: 3}
   Goal: {fileID: 6698498025518541552, guid: 22ce41798e82d5840b83dbca219bfbb4, type: 3}
   Coin: {fileID: 6619762223974891539, guid: 3f388b916d6675e4480ae2f151f2eb71, type: 3}
+  Death: {fileID: 8568019595813438035, guid: 96a4b8348f9ef9e47be8af5e6bf3d086, type: 3}
   Mario: {fileID: 327124250}
   World: {fileID: 1599072716}
   Time: {fileID: 480355372}

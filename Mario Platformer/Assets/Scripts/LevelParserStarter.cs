@@ -16,6 +16,7 @@ public class LevelParserStarter : MonoBehaviour
     public GameObject Cloud; //New Object
     public GameObject Goal; //Also new Object
     public GameObject Coin; //Another New Object
+    public GameObject Death; //Last New Object
 
     //For UI Stuff
     public TextMeshProUGUI Mario;
@@ -150,6 +151,9 @@ public class LevelParserStarter : MonoBehaviour
                 break;
             case '$': //This is for Coin
                 ToSpawn = Coin;
+                break;
+            case '@': //This is for Death
+                ToSpawn = Death;
                 break;
             //default: Debug.Log("Default Entered"); break;
             default: return;

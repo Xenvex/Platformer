@@ -69,6 +69,12 @@ public class EthanBlendControl : MonoBehaviour
             levelScript.score += 100;
         }
 
+        if(collider.gameObject.name == "Death(Clone)")
+        {
+            Debug.Log("You have died :(");
+            Destroy(gameObject);
+        }
+
     }
 
 }
