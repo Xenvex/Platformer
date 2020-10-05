@@ -6,6 +6,9 @@ public class EthanBlendControl : MonoBehaviour
 {
     private Animator animator;
     public float moveAmplify = 1;
+    public Vector3 jump;
+
+    Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +16,9 @@ public class EthanBlendControl : MonoBehaviour
         //GameObject findLevel = GameObject.Find("Level");
         //LevelParserStarter levelScript = findLevel.GetComponent<LevelParserStarter>();
         animator.SetFloat("TheoryCraft", 1);
+
+        rb = GetComponent<Rigidbody>();
+        jump = new Vector3(0.0f, 8.0f, 0.0f);
 
     }
 
@@ -30,6 +36,13 @@ public class EthanBlendControl : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(move));
 
         animator.SetFloat("TheoryCraft", sprint);
+
+
+        //Jump Attempt
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(jump, ForceMode.Impulse);
+        }
 
     }
 
